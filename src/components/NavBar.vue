@@ -9,8 +9,17 @@
         <b-navbar-item tag="div">
           <div class="buttons">
             <b-button type="is-dark" @click="login" v-if="!isSignIn" outlined>Login</b-button>
-            <b-button type="is-dark" @click="logout" v-if="isSignIn" outlined>Logout</b-button>
-            <!-- <b-button type="is-dark" outlined>Register</b-button> -->
+
+            <b-dropdown aria-role="list">
+              <figure class="image is-32x32" v-if="isSignIn">
+                <img class="is-rounded" :src="avatarUrl">
+              </figure>
+            </b-dropdown>
+
+
+            <figure class="image is-32x32" v-if="isSignIn">
+              <img class="is-rounded" :src="avatarUrl">
+            </figure>
           </div>
         </b-navbar-item>
       </template>
@@ -37,6 +46,11 @@ export default {
       this.$gAuth.signOut().then(() => {
         this.isSignIn = this.$gAuth.isAuthorized
       })
+    }
+  },
+  computed: {
+    avatarUrl () {
+      return this.$store.state.user.dL
     }
   }
 }
