@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "add": "^2.0.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "buefy": "^0.8.20",
     "core-js": "^2.6.5",
     "js-cookie": "^2.2.1",
